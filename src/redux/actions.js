@@ -7,7 +7,6 @@ import {
   TOGGLE,
   TOGGLE_OFF,
   TOGGLE_ON,
-  LOG_OUT,
 } from "./actionTypes";
 
 export const setNoteIndex = (index) => ({
@@ -48,8 +47,4 @@ export const setToTrue = (name) => ({
 export const setToFalse = (name) => ({
   type: TOGGLE_OFF,
   payload: name,
-});
-
-export const logOutUser = () => ({
-  type: LOG_OUT,
 });

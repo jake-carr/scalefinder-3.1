@@ -27,10 +27,30 @@ function ScaleTray(props) {
     return (
       <div className="scale-button-grid">
         {options.map((item, idx) => {
+          const rows = {
+            row1: [0, 5],
+            row2: [6, 11],
+            row3: [12, 17],
+            row4: [18, 23],
+          };
+          const inRange = (x, min, max) => {
+            return (x - min) * (x - max) <= 0;
+          };
+          const getClass = (i) => {
+            if (inRange(i, rows.row1[0], rows.row1[1])) {
+              return "scale-button-row1";
+            } else if (inRange(i, rows.row2[0], rows.row2[1])) {
+              return "scale-button-row2";
+            } else if (inRange(i, rows.row3[0], rows.row3[1])) {
+              return "scale-button-row3";
+            } else if (inRange(i, rows.row4[0], rows.row4[1])) {
+              return "scale-button-row4";
+            }
+          };
           return (
             <button
               key={[item, idx]}
-              className="scale-button"
+              className={getClass(idx)}
               id={idx === selectedScaleIndex ? "selected" : null}
               onClick={() => {
                 props.setScaleIndex(idx);

@@ -8,7 +8,6 @@ function Fretboard(props) {
   const { numberOfStrings, numberOfFrets, currentScale } = props;
 
   const renderGuitarStrings = () => {
-    // if logged in, should be able to render from a pref tuning, not default indices file
     const strings = [...indices];
     strings.length = numberOfStrings;
     return strings.map((noteIndex, stringIndex) => {

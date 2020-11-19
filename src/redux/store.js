@@ -12,8 +12,6 @@ const initialState = {
   sargamNotation: false,
   sharps: true,
   infoModalOpen: false,
-  loginModalOpen: false,
-  userID: "5f837761c897960230d020c1",
 };
 
 const store = createStore(reducer, initialState);

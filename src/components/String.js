@@ -100,7 +100,6 @@ function String(props) {
           {convertIndexToString(tuning, sharps)}
         </div>
       </div>
-
       <div className="fret-row-wrapper">{renderFrets()}</div>
     </div>
   );

@@ -6,4 +6,3 @@ export const SET_FRET_COUNT = "SET_FRET_COUNT";
 export const TOGGLE = "TOGGLE";
 export const TOGGLE_OFF = "TOGGLE_OFF";
 export const TOGGLE_ON = "TOGGLE_ON";
-export const LOG_OUT = "LOG_OUT";

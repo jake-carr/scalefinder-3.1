@@ -50,12 +50,6 @@ export const reducer = (state, action) => {
       [action.payload]: false,
     };
   }
-  if (action.type === actions.LOG_OUT) {
-    return {
-      ...state,
-      userID: null,
-    };
-  }
 
   return state;
 };

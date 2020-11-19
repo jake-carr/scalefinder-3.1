@@ -22,18 +22,7 @@ function App(props) {
     setNoteIndex,
     setScaleIndex,
     toggle,
-    setStringCount,
-    setFretCount,
-    userID,
   } = props;
-
-  const [username, updateUsername] = React.useState(null);
-
-  // Todos via Brandon
-  // Express Encryption Library (Crypto) : Encrypt plaintext pw so can store in mongo.
-  // Dotenv : Put mongo connection in .env not commited to github
-  // Session tokens : Send to front-end once logged in.
-  //      ^ The front-end attaches it to requests, so you know it's valid and who it's for, don't need to send username every time.
 
   const toggleSharps = () => {
     toggle("sharps");
@@ -139,77 +128,8 @@ function App(props) {
 
   const alteration = getAlteration(sharps);
 
-  const getUserData = (id) => {
-    fetch(`http://localhost:5000/api/users/${id}`)
-      .then((response) => response.json())
-      .then((result) =>
-        mapUserPrefsToState(result.data.username, result.data.preferences)
-      )
-      .catch((error) => console.log("error", error));
-  };
-
-  const mapUserPrefsToState = (name, savedPrefs) => {
-    updateUsername(name);
-    let newState = {};
-    // Copy saved preferences from api
-    // Doesn't handle tuning, just defaults it.
-    Object.keys(savedPrefs).forEach(function (key) {
-      let value = savedPrefs[key];
-      newState[key] = value;
-    });
-    Object.keys(newState).forEach(function (key) {
-      let value = newState[key];
-      let name = key.toString();
-      switch (name) {
-        case "selectedNoteIndex":
-          setNoteIndex(value);
-          break;
-        case "selectedScaleIndex":
-          setScaleIndex(value);
-          break;
-        case "numberOfStrings":
-          setStringCount(value);
-          break;
-        case "numberOfFrets":
-          setFretCount(value);
-          break;
-        case "showUnusedNotes":
-          if (value !== showUnusedNotes) {
-            toggleShowUnusedNotes();
-          }
-          break;
-        case "degrees":
-          if (value !== degrees) {
-            toggleShowDegrees();
-          }
-          break;
-        case "sargamNotation":
-          if (value !== sargamNotation) {
-            toggleIndianNotation();
-          }
-          break;
-        case "highlightRoots":
-          if (value !== highlightRoots) {
-            toggleHighlightRoots();
-          }
-          break;
-        case "sharps":
-          if (value !== sharps) {
-            toggleSharps();
-          }
-          break;
-        default:
-          break;
-      }
-    });
-  };
-
   useEffect(() => {
-    if (userID !== null) {
-      getUserData(userID);
-    } else if (userID === null || undefined) {
-      randomize();
-    }
+    randomize();
     // eslint-disable-next-line
   }, []);
 
@@ -265,7 +185,6 @@ function mapStateToProps(state) {
     selectedScaleIndex: state.selectedScaleIndex,
     numberOfFrets: state.numberOfFrets,
     numberOfStrings: state.numberOfStrings,
-    userID: state.userID,
   };
 }
 
@@ -276,10 +195,6 @@ function mapDispatchToProps(dispatch) {
       dispatch({ type: "SET_NOTE_INDEX", payload: index }),
     setScaleIndex: (index) =>
       dispatch({ type: "SET_SCALE_INDEX", payload: index }),
-    setFretCount: (value) =>
-      dispatch({ type: "SET_FRET_COUNT", payload: value }),
-    setStringCount: (value) =>
-      dispatch({ type: "SET_STRING_COUNT", payload: value }),
   };
 }
 

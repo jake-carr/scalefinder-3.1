@@ -13,6 +13,10 @@ $lightpink: #ff5ca0;
 $card-gradient-1: #4b4b4b;
 $card-gradient-2: #363636;
 $card-gradient-3: #2c2c2c;
+$scale-button-gradient-1: rgba(124, 11, 168, 0.877);
+$scale-button-gradient-2: rgba(117, 14, 158, 0.877);
+$scale-button-gradient-3: rgba(104, 10, 141, 0.877);
+$scale-button-gradient-4: rgba(97, 7, 133, 0.877);
 
 body {
   font-family: "Roboto", sans-serif;
@@ -94,7 +98,6 @@ button:focus {
     width: 2rem;
     height: 2rem;
     line-height: 1rem;
-
     font-size: 1rem;
     border-radius: 50%;
     margin-left: 0.1rem;
@@ -194,10 +197,10 @@ button:focus {
     flex-flow: row wrap;
     min-height: 50px;
     transition-duration: 0.25s;
-    .scale-button {
+    .scale-button-row1 {
       font-size: 1rem;
       border: 2px solid $light-purple;
-      background-color: $dark-purple;
+      background-color: $scale-button-gradient-1;
       border-radius: 0.1rem;
       width: 16%;
       height: 1.75rem;
@@ -205,10 +208,61 @@ button:focus {
       margin: 0.05rem;
       transition-duration: 0.25s;
     }
-    .scale-button#selected {
+    .scale-button-row1#selected {
       opacity: 50%;
     }
-    .scale-button:hover {
+    .scale-button-row1:hover {
+      border: 2px solid $bluewhite;
+    }
+    .scale-button-row2 {
+      font-size: 1rem;
+      border: 2px solid $light-purple;
+      background-color: $scale-button-gradient-2;
+      border-radius: 0.1rem;
+      width: 16%;
+      height: 1.75rem;
+      color: $white;
+      margin: 0.05rem;
+      transition-duration: 0.25s;
+    }
+    .scale-button-row2#selected {
+      opacity: 50%;
+    }
+    .scale-button-row2:hover {
+      border: 2px solid $bluewhite;
+    }
+    .scale-button-row3 {
+      font-size: 1rem;
+      border: 2px solid $light-purple;
+      background-color: $scale-button-gradient-3;
+      border-radius: 0.1rem;
+      width: 16%;
+      height: 1.75rem;
+      color: $white;
+      margin: 0.05rem;
+      transition-duration: 0.25s;
+    }
+    .scale-button-row3#selected {
+      opacity: 50%;
+    }
+    .scale-button-row3:hover {
+      border: 2px solid $bluewhite;
+    }
+    .scale-button-row4 {
+      font-size: 1rem;
+      border: 2px solid $light-purple;
+      background-color: $scale-button-gradient-4;
+      border-radius: 0.1rem;
+      width: 16%;
+      height: 1.75rem;
+      color: $white;
+      margin: 0.05rem;
+      transition-duration: 0.25s;
+    }
+    .scale-button-row4#selected {
+      opacity: 50%;
+    }
+    .scale-button-row4:hover {
       border: 2px solid $bluewhite;
     }
     .scale-tray-footer {
@@ -393,8 +447,8 @@ button:focus {
   border-radius: 50%;
   height: 2.5rem;
   width: 2.5rem;
-  font-size: 1.25rem;
-  line-height: 1.25rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
   background-color: $dark-purple;
   border: 2px solid $light-purple;
   transition-duration: 0.25s;
@@ -496,96 +550,5 @@ button:focus {
     font-size: 0.75rem;
     margin-bottom: 0.1rem;
     color: $light-purple;
-  }
-}
-
-// the following is ruined just restart
-.registration-form-modal {
-  .open-form-button {
-    width: 100px;
-    font-size: 0.75rem;
-    color: $light-purple;
-    position: absolute;
-    border: none;
-    background-color: $card-gradient-3;
-    transition-duration: 0.25s;
-  }
-  .open-form-button:hover {
-    color: $bluewhite;
-  }
-  .login-container {
-    z-index: 9;
-    padding: 0.3rem;
-    width: 12rem;
-    border: 2px solid $dark-purple;
-    border-radius: 0.15rem;
-    background-color: $dark-gray;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    form {
-      display: flex;
-      flex-direction: column;
-      input {
-        margin-bottom: 0.15rem;
-      }
-      input:focus {
-        outline: none;
-      }
-    }
-    .button-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      button {
-        border: none;
-        margin-top: 0.25rem;
-      }
-      .signUp-button {
-        background-color: $blue;
-      }
-      .login-button {
-        background-color: $green;
-      }
-      .close-button {
-        background-color: $pink;
-      }
-    }
-  }
-}
-
-.login-form-modal {
-  position: fixed;
-  left: 0;
-  top: 10.5rem;
-  .open-login-button {
-    width: 200px;
-    font-size: 1rem;
-    color: $light-purple;
-    position: absolute;
-    border: none;
-    background-color: $card-gradient-3;
-    transition-duration: 0.25s;
-  }
-  .open-login-button:hover {
-    color: $bluewhite;
-  }
-  .button-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    button {
-      border: none;
-      margin-top: 0.25rem;
-    }
-    .signUp-button {
-      background-color: $blue;
-    }
-    .login-button {
-      background-color: $green;
-    }
-    .close-button {
-      background-color: red;
-    }
   }
 }
