@@ -552,3 +552,60 @@ button:focus {
     color: $light-purple;
   }
 }
+
+.app-store-link {
+  font-size: 1rem;
+  transition-duration: .25s;
+  text-decoration: none;
+  color: $blue;
+  position: absolute;
+  top: 0.5%;
+  right: 0.5%;
+}
+
+.app-store-link:hover {
+  color: $bluewhite;
+}
+
+.email-link {
+  font-size: 1rem;
+  transition-duration: .25s;
+  color: $green;
+  text-decoration: none;
+  position: absolute;
+  top: 4%;
+  right: 0.5%;
+}
+
+.email-link:hover {
+  color: $bluewhite;
+}
+
+.mobile-page {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  p {
+    font-size: 1.2rem;
+    color: $bluewhite;
+  }
+  .mobile-app-store-link {
+    font-size: 1rem;
+    font-weight: bold;
+    transition-duration: .25s;
+    text-decoration: none;
+    color: $blue;
+  }
+  .mobile-email-link {
+    font-size: 1rem;
+    font-weight: bold;
+    transition-duration: .25s;
+    color: $green;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: $bluewhite;
+  }
+}

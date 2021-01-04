@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Fretboard from "./components/Fretboard";
 import ScaleTray from "./components/ScaleTray";
 import InfoPopup from "./components/InfoPopup";
+import MobilePage from "./components/MobilePage";
 import scales from "./constants/scales";
 import { getAlteration, createScale } from "./constants/utils";
 
@@ -110,8 +111,8 @@ function App(props) {
             btn.btnText === "Highlight roots" && highlightRoots
               ? "selected-green"
               : !btn.round && btn.btnText.includes("degrees") && degrees
-              ? "selected-blue"
-              : null
+                ? "selected-blue"
+                : null
           }
           onClick={btn.toggle}
         >
@@ -128,10 +129,20 @@ function App(props) {
 
   const alteration = getAlteration(sharps);
 
+  let isMobile = false;
+
+  if (/Mobi/.test(navigator.userAgent)) {
+    isMobile = true;
+  }
+
   useEffect(() => {
     randomize();
     // eslint-disable-next-line
   }, []);
+
+  if (isMobile) {
+    return <MobilePage></MobilePage>
+  }
 
   return (
     <div className="App">
@@ -169,6 +180,8 @@ function App(props) {
         ) : null}
       </div>
       <Fretboard currentScale={currentScale}></Fretboard>
+      <a class="app-store-link" rel="noopener noreferrer" href="https://apps.apple.com/us/app/guitar-scale-finder/id1487884068" target="_blank">Download guitar scale finder for iOS (free, no ads)</a>
+      <a class="email-link" rel="noopener noreferrer" href="mailto: guitarscalefinder@gmail.com" target="_blank">Request a feature or report a bug</a>
     </div>
   );
 }
