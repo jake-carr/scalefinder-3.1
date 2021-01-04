@@ -209,7 +209,7 @@ button:focus {
       transition-duration: 0.25s;
     }
     .scale-button-row1#selected {
-      opacity: 50%;
+      opacity: 0.5;
     }
     .scale-button-row1:hover {
       border: 2px solid $bluewhite;
@@ -226,7 +226,7 @@ button:focus {
       transition-duration: 0.25s;
     }
     .scale-button-row2#selected {
-      opacity: 50%;
+      opacity: 0.5;
     }
     .scale-button-row2:hover {
       border: 2px solid $bluewhite;
@@ -243,7 +243,7 @@ button:focus {
       transition-duration: 0.25s;
     }
     .scale-button-row3#selected {
-      opacity: 50%;
+      opacity: 0.5;
     }
     .scale-button-row3:hover {
       border: 2px solid $bluewhite;
@@ -260,7 +260,7 @@ button:focus {
       transition-duration: 0.25s;
     }
     .scale-button-row4#selected {
-      opacity: 50%;
+      opacity: 0.5;
     }
     .scale-button-row4:hover {
       border: 2px solid $bluewhite;
