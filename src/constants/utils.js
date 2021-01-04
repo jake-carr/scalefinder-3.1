@@ -30,7 +30,7 @@ export const flats = [
 
 export const sargams = ["Sa", "Re", "Ga", "Ma", "Pa", "Da", "Ni"];
 
-export const indices = [7, 2, 10, 5, 0, 7, 7, 7, 7, 7, 7, 7];
+export const indices = [7, 2, 10, 5, 0, 7, 2, 7, 7, 7, 7, 7];
 
 export const getAlteration = (isSharps) => {
   return isSharps ? sharps : flats;
