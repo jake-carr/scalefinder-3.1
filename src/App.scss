@@ -32,6 +32,7 @@ body {
   -ms-user-select: none;
   user-select: none;
   margin: 0px;
+  overflow: hidden;
 }
 
 button {
@@ -441,14 +442,15 @@ button:focus {
 
 #randomize-button {
   position: absolute;
-  top: 0.25%;
+  top: 0.5%;
   left: 0.25%;
   justify-content: center;
   border-radius: 50%;
   height: 2.5rem;
   width: 2.5rem;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  color: $white;
   background-color: $dark-purple;
   border: 2px solid $light-purple;
   transition-duration: 0.25s;
@@ -456,6 +458,28 @@ button:focus {
 
 #randomize-button:hover {
   border: 2px solid $bluewhite;
+  color: $bluewhite;
+}
+
+#reset-button {
+  position: absolute;
+  top: 0.5%;
+  left: 2.5%;
+  justify-content: center;
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  color: $white;
+  background-color: $dark-purple;
+  border: 2px solid $light-purple;
+  transition-duration: 0.25s;
+}
+
+#reset-button:hover {
+  border: 2px solid $bluewhite;
+  color: $bluewhite;
 }
 
 .guitar-string-head {
@@ -573,7 +597,7 @@ button:focus {
   color: $white;
   text-decoration: none;
   position: absolute;
-  top: 4%;
+  top: 3%;
   right: 0.5%;
 }
 

@@ -85,6 +85,11 @@ function App(props) {
     setScaleIndex(Math.floor(Math.random() * scales.length));
   };
 
+  const resetToDefaults = () => {
+    setFretCount(12);
+    setStringCount(6);
+  }
+
   const renderNoteButtons = (notation) => {
     return notation.map((note, idx) => {
       return (
@@ -172,10 +177,11 @@ function App(props) {
   return (
     <div className="App">
       <div className="main-selector-container">
-        <button id="randomize-button" onClick={randomize}>
-          <span role="img" aria-label="game-die">
-            🎲
-          </span>
+        <button id="randomize-button" onClick={randomize} title="Randomize scale + root note.">
+          <i className="fas fa-dice"/>
+        </button>
+        <button id="reset-button" onClick={resetToDefaults} title="Reset to default (6 strings, 12 frets).">
+          <i className="fas fa-redo-alt"/>
         </button>
         <div className="note-button-container">
           {renderNoteButtons(alteration)}
