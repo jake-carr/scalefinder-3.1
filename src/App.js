@@ -6,7 +6,7 @@ import ScaleTray from "./components/ScaleTray";
 import InfoPopup from "./components/InfoPopup";
 import MobilePage from "./components/MobilePage";
 import scales from "./constants/scales";
-import { getAlteration, createScale } from "./constants/utils";
+import { getAlteration, createScale, retrieveLocalStorage } from "./constants/utils";
 
 const iSymbol = <span type="text"> &#8505;</span>;
 
@@ -22,6 +22,8 @@ function App(props) {
     showUnusedNotes,
     setNoteIndex,
     setScaleIndex,
+    setFretCount,
+    setStringCount,
     toggle,
   } = props;
 
@@ -31,6 +33,7 @@ function App(props) {
 
   const toggleHighlightRoots = () => {
     toggle("highlightRoots");
+
   };
 
   const toggleShowUnusedNotes = () => {
@@ -136,7 +139,29 @@ function App(props) {
   }
 
   useEffect(() => {
-    randomize();
+    let storage = retrieveLocalStorage();
+
+    // Randomize note & scale if none are in local storage
+    if (!storage.noteIndex) {
+      setNoteIndex(Math.floor(Math.random() * 12));
+    } else {
+      setNoteIndex(storage.noteIndex)
+    }
+
+    if (!storage.scaleIndex) {
+      setScaleIndex(Math.floor(Math.random() * scales.length));
+    } else {
+      setScaleIndex(storage.scaleIndex)
+    }
+
+    // Check if there is a saved # of frets & strings in local storage
+    if (storage.numberOfFrets) {
+      setFretCount(storage.numberOfFrets)
+    }
+    if (storage.numberOfStrings) {
+      setStringCount(storage.numberOfStrings)
+    }
+
     // eslint-disable-next-line
   }, []);
 
@@ -180,8 +205,8 @@ function App(props) {
         ) : null}
       </div>
       <Fretboard currentScale={currentScale}></Fretboard>
-      <a class="app-store-link" rel="noopener noreferrer" href="https://apps.apple.com/us/app/guitar-scale-finder/id1487884068" target="_blank">Download guitar scale finder for iOS (free, no ads)</a>
-      <a class="email-link" rel="noopener noreferrer" href="mailto: guitarscalefinder@gmail.com" target="_blank">Request a feature or report a bug</a>
+      <a className="app-store-link" rel="noopener noreferrer" href="https://apps.apple.com/us/app/guitar-scale-finder/id1487884068" target="_blank">Download guitar scale finder for iOS (free, no ads)</a>
+      <a className="email-link" rel="noopener noreferrer" href="mailto: guitarscalefinder@gmail.com" target="_blank">Request a feature or report a bug</a>
     </div>
   );
 }
@@ -208,6 +233,10 @@ function mapDispatchToProps(dispatch) {
       dispatch({ type: "SET_NOTE_INDEX", payload: index }),
     setScaleIndex: (index) =>
       dispatch({ type: "SET_SCALE_INDEX", payload: index }),
+    setFretCount: (value) =>
+      dispatch({ type: "SET_FRET_COUNT", payload: value }),
+    setStringCount: (value) =>
+      dispatch({ type: "SET_STRING_COUNT", payload: value }),
   };
 }
 

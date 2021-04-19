@@ -63,3 +63,17 @@ export const createScale = (rootIndex, pattern) => {
   }
   return scale;
 };
+
+export const retrieveLocalStorage = () => {
+  var values = {},
+      keys = Object.keys(localStorage),
+      i = keys.length;
+  while ( i-- ) {
+      values[keys[i]] = JSON.parse(localStorage.getItem(keys[i])) ;
+  }
+  return values;
+}
+
+export const saveLocally = (setting, value) => {
+  localStorage.setItem(setting, value)
+}
