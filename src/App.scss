@@ -557,20 +557,20 @@ button:focus {
   font-size: 1rem;
   transition-duration: .25s;
   text-decoration: none;
-  color: $blue;
+  color: $white;
   position: absolute;
   top: 0.5%;
   right: 0.5%;
 }
 
 .app-store-link:hover {
-  color: $bluewhite;
+  color: $blue;
 }
 
 .email-link {
   font-size: 1rem;
   transition-duration: .25s;
-  color: $green;
+  color: $white;
   text-decoration: none;
   position: absolute;
   top: 4%;
@@ -578,7 +578,7 @@ button:focus {
 }
 
 .email-link:hover {
-  color: $bluewhite;
+  color: $blue;
 }
 
 .mobile-page {
@@ -604,7 +604,7 @@ button:focus {
     color: $green;
     text-decoration: none;
   }
-  
+
   a:hover {
     color: $bluewhite;
   }
